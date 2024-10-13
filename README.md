@@ -49,6 +49,21 @@ The honeynet infrastructure was designed with the following components:
 - **Objective:** Assess the effectiveness of the security controls by comparing pre- and post-control metrics.
 
 ![image](https://github.com/user-attachments/assets/accbabfd-28db-47e4-9755-5176f162d20a)
+![Screenshot 2024-10-09 204152](https://github.com/user-attachments/assets/4b825a82-79db-458b-93e0-51a322b03964)
+![Screenshot 2024-10-09 162324](https://github.com/user-attachments/assets/93aad209-f386-4501-9485-9addab449d66)
+
+### Firewall Implementation for Secure Subnet and Policies
+
+In this section, a firewall was implemented using Azure Firewall and Network Security Groups (NSGs) to control traffic, block malicious IP addresses, and secure the subnet. The following summarizes the key configuration steps and their effects:
+
+| Step                                   | Description                                                       | Effect/Result                                                       |
+|----------------------------------------|-------------------------------------------------------------------|---------------------------------------------------------------------|
+| **Create Virtual Network and Subnet**  | Set up a secure VNet with a dedicated subnet for resources.        | Isolates resources for controlled access.                          |
+| **Azure Firewall Setup**               | Deployed Azure Firewall with a public IP for traffic control.     | Filters inbound and outbound traffic to block malicious flows.     |
+| **Firewall Rules (Allow HTTP/HTTPS)**  | Allowed only HTTP/HTTPS traffic to access the subnet.             | Only authorized web traffic is allowed into the environment.       |
+| **Deny Malicious IPs**                 | Blocked specific known malicious IP ranges using firewall rules.  | Prevents unwanted or malicious connections from entering.          |
+| **Network Security Group (NSG) Rules** | Applied inbound and outbound NSG rules to restrict access.       | Limits access to only authorized IPs, reducing exposure.          |
+| **Logging and Monitoring**             | Enabled diagnostic logging for traffic analysis.                  | Provides visibility into network traffic, enabling proactive detection of threats. |
 
 ## Results
 The implementation of security controls had a substantial impact on the security of the network:
@@ -107,7 +122,7 @@ The following table shows the metrics we measured in our environment for another
 | **Brute Force Attack Attempts (Kali Linux)**| 15          | 
 
 
-### Change
+## Change
 
 ### Before and After Security Hardening
 
